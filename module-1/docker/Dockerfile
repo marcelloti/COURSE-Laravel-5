@@ -102,7 +102,7 @@ RUN a2dismod mpm_event && a2enmod mpm_prefork && service apache2 restart
 ####
 
 # Baixando pacotes (PHP, PHP-postgresql, xdebug etc)
-RUN apt-get install -y --allow-unauthenticated php php-common php-cli libapache2-mod-php php-curl php-gd php-intl php-json php-mysql php-pgsql php-readline php-dev php-xdebug
+RUN apt-get install -y --allow-unauthenticated php php-common php-cli libapache2-mod-php php-curl php-gd php-intl php-json php-mysql php-pgsql php-readline php-dev php-xdebug php-mbstring
 
 # Configurando PHP
 RUN cat ${phpIni} | sed 's/;date.timezone =/date.timezone = America\/Sao_Paulo/' | sed 's/post_max_size = 8M/post_max_size = 50M/' | sed 's/upload_max_filesize = 2M/upload_max_filesize = 50M/' | sed 's/max_file_uploads = 2M/max_file_uploads = 20/' > ${phpIni}.tmp

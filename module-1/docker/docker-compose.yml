@@ -14,7 +14,7 @@ services:
       context: .
 
     volumes:
-      - "../app:/var/www/html/webapplication"
+      - "../web:/var/www/html/webapplication"
       - "./app-aliases.conf:/etc/apache2/conf-available/app-aliases.conf"
       - "./app.conf:/etc/apache2/sites-available/app.conf"
 
