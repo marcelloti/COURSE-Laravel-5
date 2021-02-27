@@ -1,0 +1,1 @@
+Hello world!! <?php echo $nome; ?> / <?php echo $variavel1; ?>

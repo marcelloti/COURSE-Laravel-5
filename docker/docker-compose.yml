@@ -1,0 +1,26 @@
+version: "3"
+services:
+  webapplication:
+    container_name: laravel-5.5
+    restart: always
+
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+
+    image: insiderti/php7
+    build:
+      dockerfile: Dockerfile
+      context: .
+
+    volumes:
+      - "../app:/var/www/html/webapplication"
+      - "./app-aliases.conf:/etc/apache2/conf-available/app-aliases.conf"
+      - "./app.conf:/etc/apache2/sites-available/app.conf"
+
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+
+    network_mode: host
